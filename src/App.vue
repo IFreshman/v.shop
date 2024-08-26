@@ -1,6 +1,74 @@
 <script setup lang="ts">
 import { faBagShopping, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { reactive, ref } from "vue";
+import { Product, Size } from "./types/Product";
+
+const selectedSize = ref<Size>("");
+const selectedColor = ref("");
+
+function imgUrl(value: string) {
+  return new URL(
+    `./assets/clothes/Ltwre&asyt/Color/${value}.webp`,
+    import.meta.url,
+  ).href;
+}
+
+const appTestInfo: Product = reactive({
+  product: [
+    {
+      name: "Logo top with rolled edges and a slub yarn texture",
+      price: "17,99",
+      details: {
+        texture : "slub texture",
+        print : "logo print",
+        neckline : "crew neck",
+        sleeves : "short sleeves",
+        details : "logo",
+        ean: 4099976190552,
+        article_number: "2150054.4868.S" 
+      },
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+      color: [
+          { name: "White", value: "white", av: ["S", "M", "L", "XL", "XXL", "3XL"]},
+          { name: "Liliac", value: "liliac", av: ["XS", "S", "M", "L", "XL", "XXL", "3XL"]},
+          { name: "Aubergine", value: "aubergine", av: ["M", "L", "XL"]},
+          { name: "Light Blue", value: "light_blue", av: ["XS", "S", "M", "L", "XL", "XXL", "3XL"] },
+          { name: "Navy", value: "navy", av: ["XS", "S", "M", "L", "XL", "XXL", "3XL"] },
+          { name: "Bamboo Green", value: "bamboo_green", av: []},
+        ],
+      fit : {
+        fit: "Regular Fit"
+      },
+      mci:{
+        material: {
+          fabric: "slub yarn, cotton, jersey",
+          quality: "stretchy, fine"
+        },
+        material_comp: {
+          outer_fabric: "100% Cotton"
+        },
+        care: {
+          "a": "Do not chlore",
+          "b": "Gentle wash cycle 30°",
+          "c": "No dry cleaning",
+          "d": "Handwarm ironing",
+          "e": "Tumble with reduced thermical pressure"
+        }
+      }
+    },
+  ],
+
+  color: [
+    { name: "White", value: "white" },
+    { name: "Liliac", value: "liliac" },
+    { name: "Aubergine", value: "aubergine" },
+    { name: "Light Blue", value: "light_blue" },
+    { name: "Navy", value: "navy" },
+    { name: "Bamboo Green", value: "bamboo_green" },
+  ],
+  sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+});
 </script>
 
 <template>
@@ -50,107 +118,58 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
           </div>
           <div class="bottom-0 border"></div>
           <p class="font-bold">
-            <span class="font-normal">Color:</span> Aubergine
+            <span class="font-normal">Color:</span>
+            {{
+              appTestInfo.color.find((el) => el.value == selectedColor)?.name
+            }}
           </p>
           <div class="flex gap-4">
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/white.webp"
+            <div v-for="(color, index) in appTestInfo.color" :key="index">
+              <input
+                class="hidden"
+                type="radio"
+                :name="color.value"
+                :value="color.value"
+                :id="color.value"
+                v-model="selectedColor"
               />
-            </button>
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/liliac.webp"
-              />
-            </button>
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/aubergine.webp"
-              />
-            </button>
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/light_blue.webp"
-              />
-            </button>
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/navy.webp"
-              />
-            </button>
-            <button class="h-16 w-16 rounded-full">
-              <img
-                class="h-full w-full rounded-full object-contain"
-                src="./assets/clothes/Ltwre&asyt/Color/bamboo_green.webp"
-              />
-            </button>
+              <label :for="color.value">
+                <img
+                  class="h-14 w-14 rounded-full object-contain"
+                  :class="{
+                    'outline outline-2 outline-gray-800': selectedColor == color.value
+                  }"
+                  :src="imgUrl(color.value)"
+              /></label>
+            </div>
           </div>
           <div class="bottom-0 border"></div>
-          <p class="font-bold"><span class="font-normal">Size:</span> XXL</p>
+
+          <p class="font-bold">
+            <span class="font-normal">Size:</span> {{ selectedSize }}
+          </p>
           <div class="flex gap-2">
-            <div class="flex text-xs font-bold">
-              <input class="hidden" type="radio" name="S" value="S" id="S" />
-              <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="S"
-                >S</label
-              >
-            </div>
-            <div class="flex text-xs font-bold">
-              <input class="hidden" type="radio" name="M" value="M" id="M" />
-              <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="M"
-                >M</label
-              >
-            </div>
-            <div class="flex text-xs font-bold">
-              <input class="hidden" type="radio" name="L" value="L" id="L" />
-              <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="L"
-                >L</label
-              >
-            </div>
-            <div class="flex text-xs font-bold">
-              <input class="hidden" type="radio" name="XL" value="XL" id="XL" />
-              <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="XL"
-                >XL</label
-              >
-            </div>
-            <div class="flex text-xs font-bold">
+            <div
+              v-for="(size, index) in appTestInfo.sizes"
+              :key="index"
+              class="flex text-xs font-bold"
+            >
               <input
                 class="hidden"
                 type="radio"
-                name="XXL"
-                value="XXL"
-                id="XXL"
+                :name="size"
+                :value="size"
+                :id="size"
+                v-model="selectedSize"
               />
               <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="XXL"
-                >XXL</label
-              >
-            </div>
-            <div class="flex text-xs font-bold">
-              <input
-                class="hidden"
-                type="radio"
-                name="3XL"
-                value="3XL"
-                id="3XL"
-              />
-              <label
-                class="flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700"
-                for="M"
-                >3XL</label
+                class="m-1 flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700 caret-transparent"
+                :class="{
+                  'border border-transparent outline outline-2 outline-gray-800':
+                    selectedSize == size,
+                }"
+                :for="size"
+                >{{ size }}</label
               >
             </div>
           </div>
@@ -219,7 +238,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </template>
 
 <style scoped>
-input[type="radio"]:checked + label {
+/*input[type="radio"]:checked + label {
   border: 1px solid black;
-}
+}*/
 </style>
