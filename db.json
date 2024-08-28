@@ -1,0 +1,69 @@
+{
+    "product": [
+        {
+            "name": "Logo top with rolled edges and a slub yarn texture",
+            "price": "17,99",
+            "sizes": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+            "color": [
+                {
+                    "name": "White",
+                    "value": "white",
+                    "pics": 5,
+                    "av": ["S", "M", "L", "XL", "XXL", "3XL"]
+                },
+                {
+                    "name": "Liliac",
+                    "value": "liliac",
+                    "av": ["XS", "S", "M", "L", "XL", "XXL", "3XL"]
+                },
+                { 
+                    "name": "Aubergine", 
+                    "value": "aubergine", 
+                    "av": ["M", "L", "XL"] },
+                {
+                    "name": "Light Blue",
+                    "value": "light_blue",
+                    "av": ["XS", "S", "M", "L", "XL", "XXL", "3XL"]
+                },
+                {
+                    "name": "Navy",
+                    "value": "navy",
+                    "av": ["XS", "S", "M", "L", "XL", "XXL", "3XL"]
+                },
+                { 
+                    "name": "Bamboo Green", 
+                    "value": "bamboo_green", 
+                    "av": [] 
+                }
+            ],
+            "details": {
+                "texture": "slub texture",
+                "print": "logo print",
+                "neckline": "crew neck",
+                "sleeves": "short sleeves",
+                "details": "logo",
+                "ean": 4099976190552,
+                "article_number": "2150054.4868.S"
+            },
+            "fit": {
+                "fit": "Regular Fit"
+            },
+            "mci": {
+                "material": {
+                    "fabric": "slub yarn, cotton, jersey",
+                    "quality": "stretchy, fine"
+                },
+                "material_comp": {
+                    "outer_fabric": "100% Cotton"
+                },
+                "care": {
+                    "a": "Do not chlore",
+                    "b": "Gentle wash cycle 30°",
+                    "c": "No dry cleaning",
+                    "d": "Handwarm ironing",
+                    "e": "Tumble with reduced thermical pressure"
+                }
+            }
+        }
+    ]
+}
