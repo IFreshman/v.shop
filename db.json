@@ -1,6 +1,7 @@
 {
     "product": [
         {
+            "id": 1,
             "name": "Logo top with rolled edges and a slub yarn texture",
             "price": "17,99",
             "sizes": ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
