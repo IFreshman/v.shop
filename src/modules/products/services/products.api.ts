@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { Product } from "../types/Product";
+import { Products } from "../types/product";
 
-export default class ProductAPIAServices {
+export default class ProductsAPIAService {
     private axiosInstance: AxiosInstance
 
     constructor(){
@@ -10,18 +10,18 @@ export default class ProductAPIAServices {
         })    
     }
 
-    private async axiosCall<T>(config: AxiosRequestConfig){
+    private async axiosCall<T>(config: AxiosRequestConfig): Promise<[unknown, T?]>{
         try {
             const { data } = await this.axiosInstance.request<T>(config)
-            return [null, data]
+            return [null, data!]
         } catch (error) {
             return [error]
         }
     }
 
-    async getProduct(productId: number){
-        return this.axiosCall<Product>({method: "get", url: `/${productId}`})
+    async getProduct(productId: number) {
+        return this.axiosCall<Products>({method: "get" , url: `/${productId}`})
     }
 }
 
-export const productAPI = new ProductAPIAServices();
+export const productsAPI = new ProductsAPIAService();
