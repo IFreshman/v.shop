@@ -2,7 +2,6 @@ export interface Products {
     id: number, 
     name: string, 
     price: number,
-    sizes: Size[],
     color: Color[],
     details: Details,
     fit: {
@@ -12,12 +11,15 @@ export interface Products {
 
 }
 
-export type Size = "XS" |"S" | "M" | "L" | "X" | "XL" | "XXL" | "3XL" | undefined
+type Size = {
+    size: "XS" |"S" | "M" | "L" | "X" | "XL" | "XXL" | "3XL" | undefined
+    available: boolean 
+}
 
-type Color = {
+export type Color = {
     name: string
     value: string
-    av: Size[]
+    sizes: Size[]
 }
 
 type Details = {
