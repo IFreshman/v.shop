@@ -11,8 +11,8 @@ export interface Products {
 
 }
 
-type Size = {
-    size: "XS" |"S" | "M" | "L" | "X" | "XL" | "XXL" | "3XL" | undefined
+export type Size = {
+    size: string
     available: boolean 
 }
 
