@@ -3,23 +3,25 @@ export interface Products {
     name: string, 
     price: number,
     color: Color[],
-    details: Details,
-    fit: {
-        fit: string,
-    }
-    mci: MaterialAndCareInstructions
-
 }
 
-export type Size = {
-    size: string
-    available: boolean 
+export interface ProductDetails {
+    id: number, 
+    productId: number, 
+    details: Details,
+    fit: Fit,
+    mci: MaterialAndCareInstructions
 }
 
 export type Color = {
     name: string
     value: string
     sizes: Size[]
+}
+
+export type Size = {
+    size: string
+    available: boolean 
 }
 
 type Details = {

@@ -3,13 +3,8 @@
         {
             "id": 1,
             "name": "Logo top with rolled edges and a slub yarn texture",
-            "price": "17,99"
-        }
-    ],
-    "color": {
-        "id" : 1, 
-        "productId": 1,
-        "variants": [
+            "price": "17,99",
+            "color": [
             {
                 "name": "White",
                 "value": "white",
@@ -215,8 +210,9 @@
                     }
                 ]
             }
-        ]
-    },
+            ]
+        }
+    ],
     "details": [ 
         {
         "productId": 1, 

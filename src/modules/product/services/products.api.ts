@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { Products } from "../types/product";
+import { ProductDetails, Products } from "../types/product";
 
 export default class ProductsAPIAService {
     private axiosInstance: AxiosInstance
@@ -19,8 +19,12 @@ export default class ProductsAPIAService {
         }
     }
 
-    async getProduct(productId: number) {
-        return this.axiosCall<Products>({method: "get" , url: `/${productId}`})
+    async getAllProducts() {
+        return this.axiosCall<Products[]>({method: "get"})
+    }
+
+    async getProductDetails(productId: number) {
+        return this.axiosCall<ProductDetails>({method: "get" , url: `/details?productId=${productId}`})
     }
 }
 
