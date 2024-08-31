@@ -6,11 +6,10 @@
             "price": "17,99"
         }
     ],
-    "details": [ 
-        {
-        "productId": 1, 
-        "id": 1, 
-        "color": [
+    "color": {
+        "id" : 1, 
+        "productId": 1,
+        "variants": [
             {
                 "name": "White",
                 "value": "white",
@@ -216,7 +215,12 @@
                     }
                 ]
             }
-        ],
+        ]
+    },
+    "details": [ 
+        {
+        "productId": 1, 
+        "id": 1,
         "details": {
             "texture": "slub texture",
             "print": "logo print",
