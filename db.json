@@ -3,242 +3,247 @@
         {
             "id": 1,
             "name": "Logo top with rolled edges and a slub yarn texture",
-            "price": "17,99",
-            "color": [
-                {
-                    "name": "White",
-                    "value": "white",
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": true
-                        },
-                        {
-                            "size": "S",
-                            "available": true
-                        },
-                        {
-                            "size": "M",
-                            "available": true
-                        },
-                        {
-                            "size": "L",
-                            "available": true
-                        },
-                        {
-                            "size": "XL",
-                            "available": true
-                        },
-                        {
-                            "size": "XXL",
-                            "available": true
-                        },
-                        {
-                            "size": "3XL",
-                            "available": true
-                        }
-                    ]
-                },
-                {
-                    "name": "Liliac",
-                    "value": "liliac",
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": true
-                        },
-                        {
-                            "size": "S",
-                            "available": true
-                        },
-                        {
-                            "size": "M",
-                            "available": true
-                        },
-                        {
-                            "size": "L",
-                            "available": true
-                        },
-                        {
-                            "size": "XL",
-                            "available": true
-                        },
-                        {
-                            "size": "XXL",
-                            "available": true
-                        },
-                        {
-                            "size": "3XL",
-                            "available": true
-                        }
-                    ]
-                },
-                { 
-                    "name": "Aubergine", 
-                    "value": "aubergine", 
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": false
-                        },
-                        {
-                            "size": "S",
-                            "available": false
-                        },
-                        {
-                            "size": "M",
-                            "available": true
-                        },
-                        {
-                            "size": "L",
-                            "available": true
-                        },
-                        {
-                            "size": "XL",
-                            "available": true
-                        },
-                        {
-                            "size": "XXL",
-                            "available": false
-                        },
-                        {
-                            "size": "3XL",
-                            "available": false
-                        }
-                    ]
-                },
-                {
-                
-                    "name": "Light Blue",
-                    "value": "light_blue",
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": true
-                        },
-                        {
-                            "size": "S",
-                            "available": true
-                        },
-                        {
-                            "size": "M",
-                            "available": true
-                        },
-                        {
-                            "size": "L",
-                            "available": true
-                        },
-                        {
-                            "size": "XL",
-                            "available": true
-                        },
-                        {
-                            "size": "XXL",
-                            "available": true
-                        },
-                        {
-                            "size": "3XL",
-                            "available": true
-                        }
-                    ]
-                },
-                {
-                    "name": "Navy",
-                    "value": "navy",
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": true
-                        },
-                        {
-                            "size": "S",
-                            "available": true
-                        },
-                        {
-                            "size": "M",
-                            "available": true
-                        },
-                        {
-                            "size": "L",
-                            "available": true
-                        },
-                        {
-                            "size": "XL",
-                            "available": true
-                        },
-                        {
-                            "size": "XXL",
-                            "available": true
-                        },
-                        {
-                            "size": "3XL",
-                            "available": true
-                        }
-                    ]
-                },
-                { 
-                    "name": "Bamboo Green", 
-                    "value": "bamboo_green", 
-                    "sizes": [
-                        {
-                            "size": "XS",
-                            "available": false
-                        },
-                        {
-                            "size": "S",
-                            "available": false
-                        },
-                        {
-                            "size": "M",
-                            "available": false
-                        },
-                        {
-                            "size": "L",
-                            "available": false
-                        },
-                        {
-                            "size": "XL",
-                            "available": false
-                        },
-                        {
-                            "size": "XXL",
-                            "available": false
-                        },
-                        {
-                            "size": "3XL",
-                            "available": false
-                        }
-                    ]
-                }
-            ],
-            "details": {
-                "texture": "slub texture",
-                "print": "logo print",
-                "neckline": "crew neck",
-                "sleeves": "short sleeves",
-                "details": "logo",
-                "ean": 4099976190552,
-                "article_number": "2150054.4868.S"
-            },
-            "fit": {
-                "fit": "Regular Fit"
-            },
-            "mci": {
-                "material": {
-                    "fabric": "slub yarn, cotton, jersey",
-                    "quality": "stretchy, fine"
-                },
-                "material_comp": {
-                    "outer_fabric": "100% Cotton"
-                },
-                "care": {
-                    "a": "Do not chlore",
-                    "b": "Gentle wash cycle 30°",
-                    "c": "No dry cleaning",
-                    "d": "Handwarm ironing",
-                    "e": "Tumble with reduced thermical pressure"
-                }
-            }
+            "price": "17,99"
         }
+    ],
+    "details": [ 
+        {
+        "productId": 1, 
+        "id": 1, 
+        "color": [
+            {
+                "name": "White",
+                "value": "white",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": true
+                    },
+                    {
+                        "size": "S",
+                        "available": true
+                    },
+                    {
+                        "size": "M",
+                        "available": true
+                    },
+                    {
+                        "size": "L",
+                        "available": true
+                    },
+                    {
+                        "size": "XL",
+                        "available": true
+                    },
+                    {
+                        "size": "XXL",
+                        "available": true
+                    },
+                    {
+                        "size": "3XL",
+                        "available": true
+                    }
+                ]
+            },
+            {
+                "name": "Liliac",
+                "value": "liliac",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": true
+                    },
+                    {
+                        "size": "S",
+                        "available": true
+                    },
+                    {
+                        "size": "M",
+                        "available": true
+                    },
+                    {
+                        "size": "L",
+                        "available": true
+                    },
+                    {
+                        "size": "XL",
+                        "available": true
+                    },
+                    {
+                        "size": "XXL",
+                        "available": true
+                    },
+                    {
+                        "size": "3XL",
+                        "available": true
+                    }
+                ]
+            },
+            { 
+                "name": "Aubergine", 
+                "value": "aubergine", 
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": false
+                    },
+                    {
+                        "size": "S",
+                        "available": false
+                    },
+                    {
+                        "size": "M",
+                        "available": true
+                    },
+                    {
+                        "size": "L",
+                        "available": true
+                    },
+                    {
+                        "size": "XL",
+                        "available": true
+                    },
+                    {
+                        "size": "XXL",
+                        "available": false
+                    },
+                    {
+                        "size": "3XL",
+                        "available": false
+                    }
+                ]
+            },
+            {
+            
+                "name": "Light Blue",
+                "value": "light_blue",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": true
+                    },
+                    {
+                        "size": "S",
+                        "available": true
+                    },
+                    {
+                        "size": "M",
+                        "available": true
+                    },
+                    {
+                        "size": "L",
+                        "available": true
+                    },
+                    {
+                        "size": "XL",
+                        "available": true
+                    },
+                    {
+                        "size": "XXL",
+                        "available": true
+                    },
+                    {
+                        "size": "3XL",
+                        "available": true
+                    }
+                ]
+            },
+            {
+                "name": "Navy",
+                "value": "navy",
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": true
+                    },
+                    {
+                        "size": "S",
+                        "available": true
+                    },
+                    {
+                        "size": "M",
+                        "available": true
+                    },
+                    {
+                        "size": "L",
+                        "available": true
+                    },
+                    {
+                        "size": "XL",
+                        "available": true
+                    },
+                    {
+                        "size": "XXL",
+                        "available": true
+                    },
+                    {
+                        "size": "3XL",
+                        "available": true
+                    }
+                ]
+            },
+            { 
+                "name": "Bamboo Green", 
+                "value": "bamboo_green", 
+                "sizes": [
+                    {
+                        "size": "XS",
+                        "available": false
+                    },
+                    {
+                        "size": "S",
+                        "available": false
+                    },
+                    {
+                        "size": "M",
+                        "available": false
+                    },
+                    {
+                        "size": "L",
+                        "available": false
+                    },
+                    {
+                        "size": "XL",
+                        "available": false
+                    },
+                    {
+                        "size": "XXL",
+                        "available": false
+                    },
+                    {
+                        "size": "3XL",
+                        "available": false
+                    }
+                ]
+            }
+        ],
+        "details": {
+            "texture": "slub texture",
+            "print": "logo print",
+            "neckline": "crew neck",
+            "sleeves": "short sleeves",
+            "details": "logo",
+            "ean": 4099976190552,
+            "article_number": "2150054.4868.S"
+        },
+        "fit": {
+            "fit": "Regular Fit"
+        },
+        "mci": {
+            "material": {
+                "fabric": "slub yarn, cotton, jersey",
+                "quality": "stretchy, fine"
+            },
+            "material_comp": {
+                "outer_fabric": "100% Cotton"
+            },
+            "care": {
+                "a": "Do not chlore",
+                "b": "Gentle wash cycle 30°",
+                "c": "No dry cleaning",
+                "d": "Handwarm ironing",
+                "e": "Tumble with reduced thermical pressure"
+            }
+        }}
     ]
 }
