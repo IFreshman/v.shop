@@ -1,41 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { faBagShopping, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { ref } from "vue";
 
 const dialog = ref<HTMLDialogElement>();
 
 const props = defineProps({
-  confirmText: {
-    type: String,
-    default: 'Confirm',
-  },
-  cancelText: {
-    type: String,
-    default: 'Cancel',
-  },
-  hideConfirm: {
-    type: Boolean,
-    default: false,
-  },
-  showCancel: {
-    type: Boolean,
-    default: false,
-  },
   classes: {
     type: String,
-    default: '',
+    default: "",
   },
 });
 
-const emit = defineEmits(['confirm', 'cancel']);
-
-const cancel = () => {
-  dialog.value?.close();
-  emit('cancel');
-};
+const emit = defineEmits(["confirm"]);
 
 const confirm = () => {
   dialog.value?.close();
-  emit('confirm');
+  emit("confirm");
 };
 
 const visible = ref(false);
@@ -46,52 +27,42 @@ const showModal = () => {
 };
 
 defineExpose({
-  show: showModal,
-  close: (returnVal?: string): void => dialog.value?.close(returnVal),
-  visible,
+  show: showModal
 });
 </script>
 
 <template>
-  <dialog
-    ref="dialog"
-    class="modal modal-bottom sm:modal-middle"
-    @close="visible = false"
-  >
+  <dialog ref="dialog" @close="visible = false">
+    <form method="dialog">
+      <FontAwesomeIcon
+        class="text-gray-500 hover:text-black"
+        :icon="faX"
+        @click="confirm"
+      />
+    </form>
     <form
       v-if="visible"
       method="dialog"
       :class="{
-        'modal-box rounded-none p-4': true,
+        'rounded-none p-4': true,
         [props.classes]: props.classes,
       }"
     >
       <slot />
 
-      <div class="modal-action" v-if="!props.hideConfirm || props.showCancel">
+      <div>
         <slot name="footer" />
         <slot name="actionButtons">
           <button
-            v-if="props.showCancel"
-            value="false"
-            class="btn"
-            @click.prevent="cancel"
-          >
-            {{ props.cancelText }}
-          </button>
-          <button
-            v-if="!props.hideConfirm"
             value="true"
-            class="btn btn-primary"
+            class="flex items-center justify-between gap-20 bg-black px-4 py-2 text-white"
             @click.prevent="confirm"
           >
-            {{ props.confirmText }}
+            <span class="text-left font-bold">Add to Cart</span>
+            <FontAwesomeIcon :icon="faBagShopping" />
           </button>
         </slot>
       </div>
-    </form>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
     </form>
   </dialog>
 </template>

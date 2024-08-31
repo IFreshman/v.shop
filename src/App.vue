@@ -9,16 +9,11 @@ const showModal = () => modal.value?.show();
 </script>
 
 <template>
-
-
-  <!--<button @click="showModal">Show Modal</button>
-  <Modal ref="modal" showCancel>
-    <h1>Test</h1>
-  </Modal>-->
+  <button @click="showModal">Show Modal</button>
   <Suspense>
-    <template #default>
+    <Modal ref="modal">
       <Dialog></Dialog>
-    </template>
+    </Modal>
     <template #fallback>
       <div>Loading...</div>
     </template>
