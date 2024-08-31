@@ -3,7 +3,12 @@ import './style.css'
 import App from './App.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import lazyLoadDirective from './directives/lazyload'
 
 const app = createApp(App)
+
+app.directive('lazy', lazyLoadDirective),
+
 app.component('font-awesome-icon', FontAwesomeIcon)
+
 app.mount('#app')

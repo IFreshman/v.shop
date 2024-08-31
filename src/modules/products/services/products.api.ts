@@ -13,7 +13,7 @@ export default class ProductsAPIAService {
     private async axiosCall<T>(config: AxiosRequestConfig): Promise<[unknown, T?]>{
         try {
             const { data } = await this.axiosInstance.request<T>(config)
-            return [null, data!]
+            return [null, data]
         } catch (error) {
             return [error]
         }

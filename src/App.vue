@@ -1,22 +1,19 @@
 <script setup lang="ts">
-import Dialog from "./modules/products/components/view/Dialog.vue";
-import Modal from './components/Modal.vue';
-import { ref } from "vue";
-
-const modal = ref<InstanceType<typeof Modal>>();
-
-const showModal = () => modal.value?.show();
+import ProductView from "./modules/products/components/ProductView.vue";
 </script>
 
 <template>
-  <button @click="showModal">Show Modal</button>
-  <Suspense>
-    <Modal ref="modal">
-      <Dialog></Dialog>
-    </Modal>
-    <template #fallback>
-      <div>Loading...</div>
-    </template>
-  </Suspense>
+  <section class="px-20 mt-6">
+    <h2 class="text-gray-800 font-medium">See the new arrivals</h2>
+    <div class="grid grid-col-1 md:grid-cols-4 gap-6">
+      <Suspense>
+        <div v-for="index in [1,2,3,4]" :key="index">
+          <ProductView></ProductView>
+        </div>
+        <template #fallback>
+          <div>Loading...</div>
+        </template>
+      </Suspense>
+    </div>
+  </section>
 </template>
-
