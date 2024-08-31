@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
-import { productsAPI } from "../../services/products.api"
-import BaseRadioGroup from "../../../../components/base/BaseRadioGroup.vue"
-import { Size } from "../../types/product"
-import Tab from "../../../../components/base/TabView.vue"
+import BaseRadioGroup from "../../../components/base/BaseRadioGroup.vue";
+import { Products, Size } from "../types/product"
+import Tab from "../../../components/base/TabView.vue"
+
+const props = defineProps<{
+  product: Products
+}>()
+
 
 const selectedColor = ref("")
 const selectedSize = ref("")
-const [error, product] = await productsAPI.getProduct(1)
-
-if (error) {
-  console.error("Failed to fetch the product:", error)
-}
 
 const colorItems = computed(() => {
-  return product!.color.map((color) => ({
+  return props.product.color.map((color) => ({
     value: color.value,
     label: color.name,
     disabled: !color.sizes.some((size) => size.available),
@@ -22,7 +21,7 @@ const colorItems = computed(() => {
 })
 
 const sizeItems = computed(() => {
-  const selectedColors = product?.color.find((c) => c.value === selectedColor.value)
+  const selectedColors = props.product.color.find((c) => c.value === selectedColor.value)
   return selectedColors
     ? selectedColors.sizes.map((size: Size) => ({
         value: size.size,
@@ -38,7 +37,7 @@ function getColorImage(value: string) {
 </script>
 
 <template>
-  <div v-if="product">
+  <div>
     <span class="font-normal">Color:</span> {{ selectedColor }}
     <div class="flex gap-4">
       <BaseRadioGroup :items="colorItems" v-model="selectedColor">

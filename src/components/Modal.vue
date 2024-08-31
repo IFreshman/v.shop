@@ -33,7 +33,7 @@ defineExpose({
 
 <template>
   <dialog ref="dialog" @close="visible = false">
-    <form method="dialog">
+    <form method="dialog" class="flex flex-row-reverse px-4 py-3">
       <FontAwesomeIcon
         class="text-gray-500 hover:text-black"
         :icon="faX"
