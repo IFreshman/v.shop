@@ -43,6 +43,7 @@ defineExpose({
     <form
       v-if="visible"
       method="dialog"
+      class="caret-transparent"
       :class="{
         'rounded-none px-4': true,
         [props.classes]: props.classes,
