@@ -1,39 +1,72 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { productsAPI } from "../services/products.api"
-import Modal from "../../../components/Modal.vue"
-import Dialog from "./Dialog.vue"
+import { computed, ref } from "vue"
+import BaseRadioGroup from "../../../components/base/BaseRadioGroup.vue";
+import { Products, Size } from "../types/product"
+import Tab from "../../../components/base/TabView.vue"
 
-const [error, product] = await productsAPI.getProduct(1)
-const defaultColor = ref()
+const props = defineProps<{
+  product: Products
+  defaultColor: string
+}>()
 
-const modal = ref<InstanceType<typeof Modal>>()
 
-const showModal = () => modal.value?.show()
+const selectedColor = ref(props.defaultColor)
+const selectedSize = ref("")
 
-if (error) {
-  console.error("Failed to fetch the product:", error)
-} else {
-  defaultColor.value = product?.color[0].value
-}
+const colorItems = computed(() => {
+  return props.product.color.map((color) => ({
+    value: color.value,
+    label: color.name,
+    disabled: !color.sizes.some((size) => size.available),
+  }))
+})
 
-function loadThumbnail() {
-  return new URL(`/src/assets/clothes/Ltwre&asyt/product/${defaultColor.value}/1.webp`, import.meta.url).href
+const sizeItems = computed(() => {
+  const selectedColors = props.product.color.find((c) => c.value === selectedColor.value)
+  return selectedColors
+    ? selectedColors.sizes.map((size: Size) => ({
+        value: size.size,
+        label: size.size,
+        disabled: !size.available,
+      }))
+    : []
+})
+
+function getColorImage(value: string) {
+  return new URL(`/src/assets/clothes/Ltwre&asyt/Color/${value}.webp`, import.meta.url).href
 }
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-3 relative">
-    <img v-lazy :src="loadThumbnail()" class="cursor-pointer mx-auto" @click="showModal" />
-    <div class="flex justify-between gap-3 my-3">
-        <p>{{ product?.name }}</p>
-        <div>           
-            <strong>{{ product?.price }}€</strong>
-        </div>
+  <div>
+    <span class="font-normal">Color:</span> {{ selectedColor }}
+    <div class="flex gap-4">
+      <BaseRadioGroup :items="colorItems" v-model="selectedColor">
+        <template #label="{ item }">
+          <img
+            class="h-14 w-14 rounded-full object-contain"
+            :class="{
+              'outline outline-2 outline-gray-800': selectedColor == item.value,
+            }"
+            :src="getColorImage(item.value)"
+            :alt="item.value"
+          />
+        </template>
+      </BaseRadioGroup>
+    </div>
+
+    <!-- Idea: wenn out of stock/ disabled then add sth-->
+    <span class="font-normal">Size:</span> {{ selectedSize }}
+    <div class="flex gap-2">
+      <BaseRadioGroup :items="sizeItems" v-model="selectedSize" :select-color="selectedColor">
+        <template #label="{ item }">
+          <div>{{ item.value }}</div>
+        </template>
+      </BaseRadioGroup>
+    </div>
+
+    <div>
+      <Tab></Tab>
     </div>
   </div>
-  <Modal ref="modal">
-    <Dialog :product=product!></Dialog>
-    <Footer />
-  </Modal>
 </template>

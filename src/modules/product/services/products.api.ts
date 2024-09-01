@@ -6,7 +6,7 @@ export default class ProductsAPIAService {
 
     constructor(){
         this.axiosInstance = axios.create({
-            baseURL: "http://my-json-server.typicode.com/IFreshman/v.shop/product"
+            baseURL: "http://my-json-server.typicode.com/IFreshman/v.shop/"
         })    
     }
 
@@ -20,7 +20,7 @@ export default class ProductsAPIAService {
     }
 
     async getAllProducts() {
-        return this.axiosCall<Products[]>({method: "get"})
+        return this.axiosCall<Products[]>({method: "get" , url: `/product`})
     }
 
     async getProductDetails(productId: number) {
