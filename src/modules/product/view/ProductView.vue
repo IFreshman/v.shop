@@ -38,7 +38,7 @@ function getColorImage(value: string) {
   return new URL(`/src/assets/clothes/Ltwre&asyt/Color/${value}.webp`, import.meta.url).href
 }
 
-function imgSlide(value: number) {
+function imgSlide(value: string) {
   return new URL(`/src/assets/clothes/Ltwre&asyt/product/${selectedColor.value}/${value}.webp`, import.meta.url).href
 }
 </script>
@@ -46,11 +46,11 @@ function imgSlide(value: number) {
 <template>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
     <!-- Carrousel -->
-    <div class="bg-blue-500 p-4 md:col-span-3">
+    <div class="p-4 md:col-span-3">
       <BaseCarousel v-slot="{ currentSlide }">
-        <BaseSlide v-for="index in [1, 2, 3, 4, 5]" :key="index">
+        <BaseSlide v-for="(name, index) in product.pics" :key="index">
           <div v-show="currentSlide === index">
-            <img v-lazy :src="imgSlide(index)" alt="slide" />
+            <img v-lazy :src="imgSlide(name)" alt="slide" />
           </div>
         </BaseSlide>
       </BaseCarousel>
@@ -95,7 +95,7 @@ function imgSlide(value: number) {
             <template #label="{ item }">
               <div class="m-1 flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:drop-shadow-md"
               :class="{
-                'outline outline-2 outline-offset-2 outline-gray-800 drop-shadow-md': selectedSize == item.value,
+                'outline outline-2 outline-offset-2 outline-gray-800 text-black drop-shadow-md': selectedSize == item.value,
                 'opacity-40': item.disabled
               }"
               >

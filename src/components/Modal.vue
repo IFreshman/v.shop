@@ -35,8 +35,7 @@ defineExpose({
 </script>
 
 <template>
-  <dialog ref="dialog" @close="visible = false" class="w-full max-w-7xl pt-6 px-6 shadow-lg md:max-w-6xl lg:max-w-7xl over+
-  ">
+  <dialog ref="dialog" @close="visible = false" class="w-full max-w-7xl pt-6 px-6 shadow-lg md:max-w-6xl lg:max-w-7xl overflow-auto no-scrollbar">
     <form method="dialog" class="flex flex-row-reverse px-4 py-3">
       <FontAwesomeIcon class="text-gray-500 hover:text-black" :icon="faX" @click="confirm" />
     </form>

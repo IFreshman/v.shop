@@ -2,7 +2,8 @@ export interface Products {
     id: number, 
     name: string, 
     price: number,
-    color: Color[],
+    pics: string[],
+    color: Color[]
 }
 
 export interface ProductDetails {
