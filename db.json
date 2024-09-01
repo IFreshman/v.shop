@@ -11,31 +11,31 @@
                 "sizes": [
                     {
                         "size": "XS",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "S",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "M",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "L",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "XL",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "XXL",
-                        "available": true
+                        "available": false
                     },
                     {
                         "size": "3XL",
-                        "available": true
+                        "available": false
                     }
                 ]
             },
