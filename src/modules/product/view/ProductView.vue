@@ -2,7 +2,7 @@
 import { computed, ref } from "vue"
 import BaseRadioGroup from "../../../components/base/BaseRadioGroup.vue"
 import { Products, Size } from "../types/product"
-import Tab from "../../../components/base/TabView.vue"
+import TabsView from "../../../components/base/TabsView.vue"
 import BaseCarousel from "../../../components/base/BaseCarousel .vue"
 import BaseSlide from "../../../components/base/BaseSlide.vue"
 
@@ -93,7 +93,7 @@ function imgSlide(value: number) {
     </div>
 
     <div class="bg-orange-500 p-4 md:col-span-5">
-      <Tab />
+      <TabsView :id=product.id :tabs="['Details', 'Fit', 'Material & Care Instructions', 'Sustainability']" />
     </div>
   </div>
 </template>
