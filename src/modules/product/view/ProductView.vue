@@ -45,7 +45,7 @@ function imgSlide(value: number) {
 <template>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
     <!-- Carrousel -->
-    <div class="bg-blue-500 p-4 md:col-span-2">
+    <div class="bg-blue-500 p-4 md:col-span-3">
       <BaseCarousel v-slot="{ currentSlide }">
         <BaseSlide v-for="index in [1, 2, 3, 4, 5]" :key="index">
           <div v-show="currentSlide === index">
@@ -55,7 +55,7 @@ function imgSlide(value: number) {
       </BaseCarousel>
     </div>
 
-    <div class="bg-green-500 p-4 md:col-span-3">
+    <div class="bg-green-500 p-4 md:col-span-2">
       <div>
         <span>Brand New</span>
       </div>
@@ -66,7 +66,7 @@ function imgSlide(value: number) {
       </div>
 
       <span class="font-normal">Color:</span> {{ selectedColor }}
-      <div class="flex gap-4">
+      <div class="flex flex-wrap gap-4">
         <BaseRadioGroup :items="colorItems" v-model="selectedColor">
           <template #label="{ item }">
             <img
@@ -83,7 +83,7 @@ function imgSlide(value: number) {
 
       <!-- Idea: wenn out of stock/ disabled then add sth-->
       <span class="font-normal">Size:</span> {{ selectedSize }}
-      <div class="flex gap-2">
+      <div class="flex flex-wrap gap-1">
         <BaseRadioGroup :items="sizeItems" v-model="selectedSize" :select-color="selectedColor">
           <template #label="{ item }">
             <div class="m-1 flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700 caret-transparent">{{ item.value }}</div>

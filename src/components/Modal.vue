@@ -5,11 +5,14 @@ import { ref } from "vue"
 
 const dialog = ref<HTMLDialogElement>()
 
-const props = defineProps({
-  classes: {
-    type: String,
-    default: "",
-  },
+interface Props {
+  footerName: string
+  classes: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  footerName: "default",
+  classes: "",
 })
 
 const emit = defineEmits(["confirm"])
@@ -32,7 +35,8 @@ defineExpose({
 </script>
 
 <template>
-  <dialog ref="dialog" @close="visible = false" class="shadow-lg p-6 w-full max-w-7xl md:max-w-6xl lg:max-w-7xl">
+  <dialog ref="dialog" @close="visible = false" class="w-full max-w-7xl pt-6 px-6 shadow-lg md:max-w-6xl lg:max-w-7xl over+
+  ">
     <form method="dialog" class="flex flex-row-reverse px-4 py-3">
       <FontAwesomeIcon class="text-gray-500 hover:text-black" :icon="faX" @click="confirm" />
     </form>
@@ -40,20 +44,20 @@ defineExpose({
       v-if="visible"
       method="dialog"
       :class="{
-        'rounded-none p-4': true,
+        'rounded-none px-4': true,
         [props.classes]: props.classes,
       }"
     >
-      <slot />
+      <slot/>
 
-      <div>
-        <slot name="footer" />
-        <slot name="actionButtons">
-          <button value="true" class="flex items-center justify-between gap-20 bg-black px-4 py-2 text-white" @click.prevent="confirm">
+      <div class="sticky bottom-0 bg-white py-5">
+        <div class="flex items-center justify-between">
+          <h2>{{ props.footerName }}</h2>
+          <button value="true" class="flex items-center justify-between gap-20 bg-black px-4 py-2 text-white" @click="showModal">
             <span class="text-left font-bold">Add to Cart</span>
             <FontAwesomeIcon :icon="faBagShopping" />
           </button>
-        </slot>
+        </div>
       </div>
     </form>
   </dialog>

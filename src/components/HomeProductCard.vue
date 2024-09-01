@@ -28,8 +28,7 @@ function loadThumbnail() {
       </div>
     </div>
   </div>
-  <Modal ref="modal">
+  <Modal ref="modal" :footer-name=product.name>
     <ProductView :product=product :default-color=defaultColor></ProductView>
-    <Footer />
   </Modal>
 </template>
