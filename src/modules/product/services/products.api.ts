@@ -24,7 +24,7 @@ export default class ProductsAPIAService {
     }
 
     async getProductDetails(productId: number) {
-        return this.axiosCall<ProductDetails>({method: "get" , url: `/details?productId=${productId}`})
+        return this.axiosCall<ProductDetails>({method: "get" , url: `/details/${productId}`})
     }
 }
 

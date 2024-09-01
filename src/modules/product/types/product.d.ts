@@ -25,11 +25,7 @@ export type Size = {
 }
 
 type Details = {
-    texture: string,
-    print: string,
-    neckline: string,
-    sleeves: string,
-    details?: string,
+    info: [{title: string, description: string,}]
     ean: number,
     article_number: string
 }

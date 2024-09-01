@@ -218,11 +218,13 @@
         "productId": 1, 
         "id": 1,
         "details": {
-            "texture": "slub texture",
-            "print": "logo print",
-            "neckline": "crew neck",
-            "sleeves": "short sleeves",
-            "details": "logo",
+            "info": [
+                {"title": "texture", "description": "slub texture"},
+                {"title": "print", "description": "logo print"},
+                {"title": "neckline", "description": "crew neck"},
+                {"title": "sleeves", "description": "short sleeves"},
+                {"title": "details", "description": "logo"}
+            ],
             "ean": 4099976190552,
             "article_number": "2150054.4868.S"
         },
