@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import ProductView from "../modules/product/view/ProductView.vue";
-import { Products } from "../modules/product/types/product";
+import ProductView from "../modules/product/view/ProductView.vue"
+import { Products } from "../modules/product/types/product"
 import Modal from "./Modal.vue"
 
 const props = defineProps<{
@@ -19,13 +19,13 @@ function loadThumbnail() {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-3 relative">
-    <img v-lazy :src="loadThumbnail()" class="cursor-pointer mx-auto" @click="showModal" />
-    <div class="flex justify-between gap-3 my-3">
-        <p>{{ product.name }}</p>
-        <div>           
-            <strong>{{ product.price }}€</strong>
-        </div>
+  <div class="relative rounded-lg bg-white p-3 shadow-lg">
+    <img v-lazy :src="loadThumbnail()" class="mx-auto cursor-pointer" @click="showModal" />
+    <div class="my-3 flex justify-between gap-3">
+      <p>{{ product.name }}</p>
+      <div>
+        <strong>{{ product.price }}€</strong>
+      </div>
     </div>
   </div>
   <Modal ref="modal">
