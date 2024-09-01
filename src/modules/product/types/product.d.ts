@@ -8,9 +8,10 @@ export interface Products {
 export interface ProductDetails {
     id: number, 
     productId: number, 
-    details: Details,
-    fit: Fit,
-    mci: MaterialAndCareInstructions
+    ean: number, 
+    article_num: string, 
+    info: Info[]
+    care: Care[]
 }
 
 export type Color = {
@@ -24,29 +25,13 @@ export type Size = {
     available: boolean 
 }
 
-type Details = {
-    info: [{title: string, description: string,}]
-    ean: number,
-    article_number: string
+export type Info = {
+    title: string, 
+    description: string
+    tag: string
 }
 
-type Fit = {
-    fit: string
-}
-
-type MaterialAndCareInstructions = {
-    material: {
-        fabric: string,
-        quality: string
-    },
-    material_comp: {
-        outer_fabric: string
-    },
-    care: {
-        a: string,
-        b: string,
-        c: string,
-        d: string,
-        e: string,
-    }
+export type Care = {
+    symbol: string, 
+    description: string
 }

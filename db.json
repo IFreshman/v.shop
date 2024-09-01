@@ -11,7 +11,7 @@
                 "sizes": [
                     {
                         "size": "XS",
-                        "available": false
+                        "available": true
                     },
                     {
                         "size": "S",
@@ -27,7 +27,7 @@
                     },
                     {
                         "size": "XL",
-                        "available": false
+                        "available": true
                     },
                     {
                         "size": "XXL",
@@ -215,37 +215,28 @@
     ],
     "details": [ 
         {
-        "productId": 1, 
-        "id": 1,
-        "details": {
-            "info": [
-                {"title": "texture", "description": "slub texture"},
-                {"title": "print", "description": "logo print"},
-                {"title": "neckline", "description": "crew neck"},
-                {"title": "sleeves", "description": "short sleeves"},
-                {"title": "details", "description": "logo"}
-            ],
+            "productId": 1, 
+            "id": 1,
             "ean": 4099976190552,
-            "article_number": "2150054.4868.S"
-        },
-        "fit": {
-            "fit": "Regular Fit"
-        },
-        "mci": {
-            "material": {
-                "fabric": "slub yarn, cotton, jersey",
-                "quality": "stretchy, fine"
-            },
-            "material_comp": {
-                "outer_fabric": "100% Cotton"
-            },
-            "care": {
-                "a": "Do not chlore",
-                "b": "Gentle wash cycle 30°",
-                "c": "No dry cleaning",
-                "d": "Handwarm ironing",
-                "e": "Tumble with reduced thermical pressure"
-            }
-        }}
+            "article_num": "2150054.4868.S",
+            "info": [
+                {"title": "Texture", "description": "slub texture", "tag": "details"},
+                {"title": "Print", "description": "Logo Print", "tag": "details"},
+                {"title": "Neckline", "description": "Crew Neck", "tag": "details"},
+                {"title": "Seeves", "description": "Short Sleeves", "tag": "details"},
+                {"title": "Details", "description": "Logo", "tag": "details" },
+                {"title": "Fit", "description": "Regular Fit", "tag": "fit"},
+                {"title": "Fabric", "description": "slub yarn, cotton, jersey", "tag": "material"},
+                {"title": "Quality", "description": "stretchy, fine", "tag": "material"},
+                {"title": "Outer fabric", "description": "100% Cotton", "tag": "material_comp"}
+            ],
+            "care": [
+                {"symbol": "noBleach", "description": "Do not chlore"},
+                {"symbol": "30GentleCycle", "description": "Gentle wash cycle 30°"},
+                {"symbol": "noDry", "description": "No dry cleanin"},
+                {"symbol": "moderateIron", "description": "Handwarm ironing"},
+                {"symbol": "gentleTumDrying", "description": "Tumble with reduced thermical pressure"}
+            ]
+        }
     ]
 }
