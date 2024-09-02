@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue"
 import BaseRadioGroup from "../../../components/base/BaseRadioGroup.vue"
-import { Products, Size } from "../types/product"
+import { Product, Size } from "../types/product"
 import TabsView from "../../../components/tab/TabsView.vue"
 import BaseCarousel from "../../../components/base/BaseCarousel .vue"
 import BaseSlide from "../../../components/base/BaseSlide.vue"
@@ -9,7 +9,7 @@ import BaseDivider from "../../../components/base/BaseDivider.vue"
 import { imageService } from "../services/img.services"
 
 const props = defineProps<{
-  product: Products
+  product: Product
   defaultColor: string
 }>()
 
