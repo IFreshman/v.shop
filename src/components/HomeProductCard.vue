@@ -16,12 +16,12 @@ const showModal = () => modal.value?.show()
 </script>
 
 <template>
-  <div class="relative rounded-lg bg-white p-3 shadow-lg">
-    <img v-lazy :src="imageService.getProductImage(product.id, props.defaultColor, '1')" class="mx-auto cursor-pointer" @click="showModal" />
-    <div class="my-3 flex justify-between gap-3">
-      <p>{{ product.name }}</p>
+  <div class="relative rounded-lg bg-white p-3 shadow-lg max-w-xs mx-auto sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+    <img v-lazy :src="imageService.getProductImage(product.id, props.defaultColor, '1')" class="mx-auto cursor-pointer w-full h-auto" @click="showModal" />
+    <div class="my-3 flex flex-col sm:flex-row sm:justify-between gap-3">
+      <p class="text-base sm:text-lg font-medium">{{ product.name }}</p>
       <div>
-        <strong>{{ product.price }}€</strong>
+        <strong class="text-base sm:text-lg">{{ product.price }}€</strong>
       </div>
     </div>
   </div>

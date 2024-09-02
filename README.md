@@ -1,8 +1,11 @@
-# Vue 3 + TypeScript + Vite
+# v.Shop 
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> [!IMPORTANT]
+> This is a dummy version for my challenge, under Review-Branch you will find the submitted status. Dev and master branch will continue to be used for futher Development
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Optional Acceptance Criteria (Status)
+- [x] There is no CSS Framework used (or only tailwind)
+- [x] Click on a different color changes the slideshow images as well as the availabilities of the sizes
+- [ ] There should be unit tests in place that cover at least 60% of the source code
+- [x] Docker is used as your underlying development environment
 
-
-https://www.soliver.eu/p/logo-top-with-rolled-edges-and-a-slub-yarn-texture-2150054.html?variantColor=4084

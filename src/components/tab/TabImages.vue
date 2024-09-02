@@ -14,6 +14,6 @@ function imageClasses(index: number) {
 
 <template>
   <div class="relative">
-    <img v-for="(images, index) in number" :key="index" :src="imageService.getProductImage(props.id, selectedColor, images)" :class="imageClasses(index)" class="h-auto" />
+    <img v-for="(images, index) in number" :key="index" :src="imageService.getProductImage(props.id, selectedColor, images)" :class="imageClasses(index)" class="h-auto hidden md:block" />
   </div>
 </template>
