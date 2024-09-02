@@ -32,22 +32,30 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex">
-    <slot :currentSlide=currentSlide />
-  </div>
+  <div class="relative w-full overflow-hidden">
+    <div class="flex w-full transition-transform duration-700" :style="{ transform: `translateX(-${(currentSlide - 1) * 100}%)` }">
+      <slot :currentSlide="currentSlide" />
+    </div>
 
-  <!-- Navigation -->
-  <div>
-    <button type="button" @click="prevSlide()" >
-      <FontAwesomeIcon :icon="faChevronLeft" />
-    </button> 
-    <button type="button" @click="nextSlide()" >
-      <FontAwesomeIcon :icon="faChevronRight" />
-    </button>
-  </div>
+    <!-- Navigation -->
+    <div class="absolute left-0 right-0 top-1/2 flex w-full -translate-y-1/2 transform items-center justify-between px-4">
+      <button type="button" @click="prevSlide()" class="left-nav text-gray-700 hover:text-black">
+        <FontAwesomeIcon :icon="faChevronLeft" />
+      </button>
+      <button type="button" @click="nextSlide()" class="right-nav text-gray-700 hover:text-black">
+        <FontAwesomeIcon :icon="faChevronRight" />
+      </button>
+    </div>
 
-  <!-- Pagination -->
-  <div>
-    <span v-for="(slide, index) in getSlideCount" :key="index" :class="{ 'bg-red-400': index + 1 === currentSlide }" @click="goToSlide(index)">{{ slide }}</span>
+    <!-- Pagination -->
+    <div class="absolute bottom-6 flex w-full items-center justify-center gap-4">
+      <span
+        v-for="(slide, index) in getSlideCount"
+        :key="slide"
+        class="h-2 w-2 cursor-pointer rounded-full bg-gray-400 shadow-sm"
+        :class="{ '!h-3 !w-3 !bg-gray-700': index + 1 === currentSlide }"
+        @click="goToSlide(index)"
+      ></span>
+    </div>
   </div>
 </template>

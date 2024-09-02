@@ -35,7 +35,7 @@ defineExpose({
 </script>
 
 <template>
-  <dialog ref="dialog" @close="visible = false" class="w-full max-w-7xl pt-6 px-6 shadow-lg md:max-w-6xl lg:max-w-7xl overflow-auto no-scrollbar">
+  <dialog ref="dialog" @close="visible = false" class="no-scrollbar w-full max-w-7xl overflow-auto px-6 pt-6 shadow-lg drop-shadow-lg md:max-w-6xl lg:max-w-7xl">
     <form method="dialog" class="flex flex-row-reverse px-4 py-3">
       <FontAwesomeIcon class="text-gray-500 hover:text-black" :icon="faX" @click="confirm" />
     </form>
@@ -48,7 +48,7 @@ defineExpose({
         [props.classes]: props.classes,
       }"
     >
-      <slot/>
+      <slot />
 
       <div class="sticky bottom-0 bg-white py-5">
         <div class="flex items-center justify-between">

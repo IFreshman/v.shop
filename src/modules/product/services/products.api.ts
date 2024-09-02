@@ -1,5 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { ProductDetails, Products } from "../types/product";
+import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
+import { ProductDetails, Products } from "../types/product"
 
 export default class ProductsAPIAService {
     private axiosInstance: AxiosInstance
@@ -28,4 +28,4 @@ export default class ProductsAPIAService {
     }
 }
 
-export const productsAPI = new ProductsAPIAService();
+export const productsAPI = new ProductsAPIAService()

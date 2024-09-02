@@ -2,10 +2,11 @@
 import { computed, ref } from "vue"
 import BaseRadioGroup from "../../../components/base/BaseRadioGroup.vue"
 import { Products, Size } from "../types/product"
-import TabsView from "../../../components/base/TabsView.vue"
+import TabsView from "../../../components/tab/TabsView.vue"
 import BaseCarousel from "../../../components/base/BaseCarousel .vue"
 import BaseSlide from "../../../components/base/BaseSlide.vue"
 import BaseDivider from "../../../components/base/BaseDivider.vue"
+import { imageService } from "../services/img.services"
 
 const props = defineProps<{
   product: Products
@@ -34,12 +35,8 @@ const sizeItems = computed(() => {
     : []
 })
 
-function getColorImage(value: string) {
-  return new URL(`/src/assets/clothes/Ltwre&asyt/Color/${value}.webp`, import.meta.url).href
-}
-
-function imgSlide(value: string) {
-  return new URL(`/src/assets/clothes/Ltwre&asyt/product/${selectedColor.value}/${value}.webp`, import.meta.url).href
+function imgSlide(id: number, value: number) {
+  return imageService.getProductImage(id, selectedColor.value, value.toString())
 }
 </script>
 
@@ -48,9 +45,9 @@ function imgSlide(value: string) {
     <!-- Carrousel -->
     <div class="p-4 md:col-span-3">
       <BaseCarousel v-slot="{ currentSlide }">
-        <BaseSlide v-for="(name, index) in product.pics" :key="index">
+        <BaseSlide v-for="index in [1, 2, 3, 4, 5]" :key="index">
           <div v-show="currentSlide === index">
-            <img v-lazy :src="imgSlide(name)" alt="slide" />
+            <img v-lazy :src="imgSlide(product.id, index)" alt="slide" />
           </div>
         </BaseSlide>
       </BaseCarousel>
@@ -61,7 +58,7 @@ function imgSlide(value: string) {
       <h1 class="text-2xl font-thin">{{ product.name }}</h1>
       <div class="flex items-end justify-between py-4">
         <p class="font-bold">{{ product.price }} EUR</p>
-        <p><img src="/src/assets/logo/soliver.svg" /></p>
+        <p><img src="/src/assets/svg/logo/soliver.svg" /></p>
       </div>
 
       <BaseDivider />
@@ -77,7 +74,7 @@ function imgSlide(value: string) {
                   'outline outline-1 outline-offset-2 outline-black drop-shadow-lg': selectedColor == item.value,
                   'opacity-40': item.disabled,
                 }"
-                :src="getColorImage(item.value)"
+                :src="imageService.getColorImage(product.id, item.value)"
                 :alt="item.value"
               />
             </template>
@@ -89,15 +86,16 @@ function imgSlide(value: string) {
 
       <!-- Idea: wenn out of stock/ disabled then add sth-->
       <div class="py-2">
-        <h2 class="pb-2 font-bold"><span class="font-normal">Size:</span> {{ selectedSize }} </h2>
+        <h2 class="pb-2 font-bold"><span class="font-normal">Size:</span> {{ selectedSize }}</h2>
         <div class="flex flex-wrap gap-1">
           <BaseRadioGroup :items="sizeItems" v-model="selectedSize" :select-color="selectedColor">
             <template #label="{ item }">
-              <div class="m-1 flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:drop-shadow-md"
-              :class="{
-                'outline outline-2 outline-offset-2 outline-gray-800 text-black drop-shadow-md': selectedSize == item.value,
-                'opacity-40': item.disabled
-              }"
+              <div
+                class="m-1 flex h-6 w-14 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:drop-shadow-md"
+                :class="{
+                  'text-black outline outline-2 outline-offset-2 outline-gray-800 drop-shadow-md': selectedSize == item.value,
+                  'opacity-40': item.disabled,
+                }"
               >
                 {{ item.value }}
               </div>
