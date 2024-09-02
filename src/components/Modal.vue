@@ -35,8 +35,8 @@ defineExpose({
 </script>
 
 <template>
-  <dialog ref="dialog" @close="visible = false" class="no-scrollbar w-full max-w-7xl overflow-auto px-6 pt-6 shadow-lg drop-shadow-lg md:max-w-6xl lg:max-w-7xl">
-    <form method="dialog" class="flex flex-row-reverse px-4 py-3">
+  <dialog ref="dialog" @close="visible = false" class="no-scrollbar w-full max-w-7xl pt-2 overflow-auto shadow-lg drop-shadow-lg md:max-w-6xl lg:max-w-7xl">
+    <form method="dialog" class="flex flex-row-reverse px-6 py-3 sticky top-0">
       <FontAwesomeIcon class="text-gray-500 hover:text-black" :icon="faX" @click="confirm" />
     </form>
     <form
@@ -44,13 +44,12 @@ defineExpose({
       method="dialog"
       class="caret-transparent"
       :class="{
-        'rounded-none px-4': true,
         [props.classes]: props.classes,
       }"
     >
       <slot />
 
-      <div class="sticky bottom-0 bg-white py-5">
+      <div class="top sticky bottom-0 bg-white py-5 px-6">
         <div class="flex items-center justify-between">
           <h2>{{ props.footerName }}</h2>
           <button value="true" class="flex items-center justify-between gap-20 bg-black px-4 py-2 text-white" @click="showModal">
@@ -62,3 +61,9 @@ defineExpose({
     </form>
   </dialog>
 </template>
+
+<style scoped>
+.top {
+  box-shadow: 0 30px 30px 30px #21212122;
+}
+</style>

@@ -41,7 +41,7 @@ function imgSlide(id: number, value: number) {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-5">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-5 px-6 pb-8">
     <!-- Carrousel -->
     <div class="p-4 md:col-span-3">
       <BaseCarousel v-slot="{ currentSlide }">
@@ -104,9 +104,8 @@ function imgSlide(id: number, value: number) {
         </div>
       </div>
     </div>
-
-    <div class="bg-orange-500 p-4 md:col-span-5">
-      <TabsView :id="product.id" :tabs="['Details', 'Fit', 'Material & Care Instructions', 'Sustainability']" />
-    </div>
+  </div>
+  <div class="md:col-span-5 p-4 bg-gray-200">
+      <TabsView :id="product.id" :selected-color="selectedColor" :tabs="['Details', 'Fit', 'Material & Care Instructions', 'Sustainability']" />
   </div>
 </template>
