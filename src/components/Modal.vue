@@ -7,12 +7,10 @@ const dialog = ref<HTMLDialogElement>()
 
 interface Props {
   footerName: string
-  classes: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  footerName: "default",
-  classes: "",
+  footerName: "default"
 })
 
 const emit = defineEmits(["confirm"])
@@ -43,13 +41,9 @@ defineExpose({
       v-if="visible"
       method="dialog"
       class="caret-transparent"
-      :class="{
-        [props.classes]: props.classes,
-      }"
     >
       <slot />
-
-      <div class="top sticky bottom-0 bg-white py-5 px-6">
+      <div class="shadow-2xl sticky bottom-0 bg-white py-5 px-6">
         <div class="flex items-center justify-between">
           <h2>{{ props.footerName }}</h2>
           <button value="true" class="flex items-center justify-between gap-20 bg-black px-4 py-2 text-white" @click="showModal">
@@ -61,9 +55,3 @@ defineExpose({
     </form>
   </dialog>
 </template>
-
-<style scoped>
-.top {
-  box-shadow: 0 30px 30px 30px #21212122;
-}
-</style>
